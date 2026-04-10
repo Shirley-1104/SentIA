@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SentIA - Test Vocacional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex justify-center items-center h-screen">
+    <nav class="bg-white shadow p-4 flex justify-between">
+        <h1 class="text-xl font-bold text-purple-700">SentIA</h1>
+        <div class="space-x-4">
+            <a href="index.html">Inicio</a>
+            <a href="carreras.html">Carreras</a>
+            <a href="test.html">Test</a>
+        </div>
+    </nav>
+
+    <h1>Test Vocacional Inteligente - SentIA</h1>
+
+    <form id="formulario">
+        <div class="paso">
+            <h3>Datos Personales</h3>
+            <input type="text" placeholder="Nombre"><br>
+            <input type="number" placeholder="Edad"><br>
+            <input type="text" placeholder="Ciudad"><br>
+            <input type="text" placeholder="Colegio"><br>
+
+            <button type="button" onclick="siguiente()">Siguiente</button>
+        </div>
+
+        <div class="paso" style="display: none;">
+            <h3>Académico</h3>
+            <input type="text" placeholder="Materia favorita"><br>
+            <input type="text" placeholder="Materia menos favorita">
+            <input type="text" placeholder="Promedio"><br>
+            <input type="text" placeholder="Nivel en matemáticas"><br>
+
+            <button type="button" onclick="anterior()">Anterior</button>
+            <button type="button" onclick="siguiente()">Siguiente</button>
+        </div>
+    </form>
+    
+</body>
+</html>
