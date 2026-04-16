@@ -1,45 +1,95 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SentIA - Test Vocacional</title>
+    <title>Test SentIA</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 flex justify-center items-center h-screen">
-    <nav class="bg-white shadow p-4 flex justify-between">
-        <h1 class="text-xl font-bold text-purple-700">SentIA</h1>
-        <div class="space-x-4">
-            <a href="index.html">Inicio</a>
-            <a href="carreras.html">Carreras</a>
-            <a href="test.html">Test</a>
-        </div>
-    </nav>
 
-    <h1>Test Vocacional Inteligente - SentIA</h1>
+<body class="bg-gray-100">
+<nav class="bg-white shadow-md p-4 flex justify-between items-center sticky top-0">
+    <h1 class="text-2xl font-bold text-purple-700"><a href="index.html">SentIA</a></h1>
 
-    <form id="formulario">
-        <div class="paso">
-            <h3>Datos Personales</h3>
-            <input type="text" placeholder="Nombre"><br>
-            <input type="number" placeholder="Edad"><br>
-            <input type="text" placeholder="Ciudad"><br>
-            <input type="text" placeholder="Colegio"><br>
+    <div class="space-x-6 font-medium">
+        <a href="index.html" class="hover:text-purple-600">Inicio</a>
+        <a href="carreras.html" class="hover:text-purple-600">Carreras</a>
+        <a href="test.html" class="hover:text-purple-600">Test</a>
+    </div>
+</nav>
 
-            <button type="button" onclick="siguiente()">Siguiente</button>
+    <div class="bg-white p-8 rounded-lg shadow w-full max-w-xl">
+        <h2 class="text-2xl font-bold text-center mb-4">Test Inteligente</h2>
+        <div class="w-full bg-gray-200 rounded-full h-3 mb-6">
+            <div id="progreso" class="bg-purple-600 h-3 rounded-full" style="width: 20%"></div>
         </div>
 
-        <div class="paso" style="display: none;">
-            <h3>Académico</h3>
-            <input type="text" placeholder="Materia favorita"><br>
-            <input type="text" placeholder="Materia menos favorita">
-            <input type="text" placeholder="Promedio"><br>
-            <input type="text" placeholder="Nivel en matemáticas"><br>
+        <form id="formulario">
+            <div class="paso">
+                <h3 class="font-semibold mb-2">Datos personales</h3>
+                <input class="w-full p-2 border mb-2" placeholder="Nombre">
+                <input class="w-full p-2 border mb-2" placeholder="Edad">
+                <input class="w-full p-2 border mb-2" placeholder="Ciudad">
+            </div>
 
-            <button type="button" onclick="anterior()">Anterior</button>
-            <button type="button" onclick="siguiente()">Siguiente</button>
-        </div>
-    </form>
-    
+            <div class="paso hidden">
+                <h3 class="font-semibold mb-2">Académico</h3>
+                <input class="w-full p-2 border mb-2" placeholder="Materia favorita">
+                <input class="w-full p-2 border mb-2" placeholder="Promedio">
+            </div>
+
+            <div class="paso hidden">
+                <h3 class="font-semibold mb-2">Intereses</h3>
+                <label>¿Te gusta la tecnología?</label>
+                <select class="w-full p-2 border mb-2">
+                    <option>Mucho</option>
+                    <option>Poco</option>
+                    <option>Nada</option>
+                </select>
+
+                <label>¿Te gusta el arte?</label>
+                <select class="w-full p-2 border mb-2">
+                    <option>Mucho</option>
+                    <option>Poco</option>
+                    <option>Nada</option>
+                </select>
+            </div>
+
+            <div class="paso hidden">
+                <h3 class="font-semibold mb-2">Emocional</h3>
+                <label>Nivel de estrés</label>
+                <input type="range" min="1" max="10" class="w-full">
+                <label>Horas de sueño</label>
+                <input class="w-full p-2 border mb-2">
+            </div>
+
+            <div class="paso hidden">
+                <h3 class="font-semibold mb-2">Preguntas clave</h3>
+
+                <p>¿Te gusta resolver problemas?</p>
+                <input type="radio" name="p1" value="1"> Sí
+                <input type="radio" name="p1" value="0"> No
+
+                <p class="mt-2">¿Prefieres trabajar solo?</p>
+                <input type="radio" name="p2" value="1"> Sí
+                <input type="radio" name="p2" value="0"> No
+            </div>
+
+            <div class="flex justify-between mt-6">
+                <button type="button" onclick="anterior()" class="bg-gray-400 text-white px-4 py-2 rounded">
+                    Atrás
+                </button>
+
+                <button type="button" onclick="siguiente()" class="bg-purple-600 text-white px-4 py-2 rounded">
+                    Siguiente
+                </button>
+            </div>
+
+        </form>
+    </div>
+
+    <script src="js/script.js"></script>
+
 </body>
+
 </html>
