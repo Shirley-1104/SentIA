@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Test SentIA - Luxury Experience</title>
+    <title>Test SentIA </title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -62,32 +62,78 @@
                         <input class="w-full p-4 bg-slate-50 border-none rounded-2xl font-bold text-slate-800 placeholder-slate-300 focus:ring-2 focus:ring-teal-100 outline-none" placeholder="Promedio">
                     </div>
                 </div>
+<div class="paso hidden">
+    <h3 class="text-[10px] font-black uppercase tracking-[0.2em] text-blue-500 mb-6">03. Intereses</h3>
+    
+    <div class="mb-8">
+        <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-4">¿Te gusta la tecnología?</label>
+        <div class="grid grid-cols-3 gap-3">
+            <button type="button" onclick="seleccionarOpcion(this, 'tecnologia')" 
+                class="option-btn p-4 rounded-2xl bg-slate-50 text-[10px] font-black uppercase tracking-widest border-2 border-transparent hover:border-blue-100 transition-all duration-300 shadow-sm">
+                Mucho
+            </button>
+            <button type="button" onclick="seleccionarOpcion(this, 'tecnologia')" 
+                class="option-btn p-4 rounded-2xl bg-slate-50 text-[10px] font-black uppercase tracking-widest border-2 border-transparent hover:border-blue-100 transition-all duration-300 shadow-sm">
+                Poco
+            </button>
+            <button type="button" onclick="seleccionarOpcion(this, 'tecnologia')" 
+                class="option-btn p-4 rounded-2xl bg-slate-50 text-[10px] font-black uppercase tracking-widest border-2 border-transparent hover:border-blue-100 transition-all duration-300 shadow-sm">
+                Nada
+            </button>
+        </div>
+        <input type="hidden" name="tecnologia" id="input-tecnologia">
+    </div>
 
-                <div class="paso hidden">
-                    <h3 class="text-[10px] font-black uppercase tracking-[0.2em] text-blue-500 mb-6">03. Intereses</h3>
-                    <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">¿Te gusta la tecnología?</label>
-                    <select class="w-full p-4 bg-slate-50 border-none rounded-2xl font-bold text-slate-800 mb-4 focus:ring-2 focus:ring-blue-100 cursor-pointer outline-none">
-                        <option>Mucho</option>
-                        <option>Poco</option>
-                        <option>Nada</option>
-                    </select>
+    <div>
+        <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-4">¿Te gusta el arte?</label>
+        <div class="grid grid-cols-3 gap-3">
+            <button type="button" onclick="seleccionarOpcion(this, 'arte')" 
+                class="option-btn p-4 rounded-2xl bg-slate-50 text-[10px] font-black uppercase tracking-widest border-2 border-transparent hover:border-teal-100 transition-all duration-300 shadow-sm">
+                Mucho
+            </button>
+            <button type="button" onclick="seleccionarOpcion(this, 'arte')" 
+                class="option-btn p-4 rounded-2xl bg-slate-50 text-[10px] font-black uppercase tracking-widest border-2 border-transparent hover:border-teal-100 transition-all duration-300 shadow-sm">
+                Poco
+            </button>
+            <button type="button" onclick="seleccionarOpcion(this, 'arte')" 
+                class="option-btn p-4 rounded-2xl bg-slate-50 text-[10px] font-black uppercase tracking-widest border-2 border-transparent hover:border-teal-100 transition-all duration-300 shadow-sm">
+                Nada
+            </button>
+        </div>
+        <input type="hidden" name="arte" id="input-arte">
+    </div>
+</div>
 
-                    <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">¿Te gusta el arte?</label>
-                    <select class="w-full p-4 bg-slate-50 border-none rounded-2xl font-bold text-slate-800 focus:ring-2 focus:ring-blue-100 cursor-pointer outline-none">
-                        <option>Mucho</option>
-                        <option>Poco</option>
-                        <option>Nada</option>
-                    </select>
-                </div>
+               <div class="paso hidden">
+    <h3 class="text-[10px] font-black uppercase tracking-[0.2em] text-indigo-600 mb-6">04. Emocional</h3>
+    
+    <div class="mb-10">
+        <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-6 text-center">¿Cuál es tu nivel de estrés actual? (1 - 10)</label>
+        
+        <div class="flex justify-between items-center gap-2 px-2">
+            <button type="button" onclick="seleccionarEscala(this, 1)" class="escala-btn w-10 h-10 rounded-full bg-slate-50 text-slate-400 font-bold text-xs transition-all border border-slate-100 hover:border-indigo-200">1</button>
+            <button type="button" onclick="seleccionarEscala(this, 2)" class="escala-btn w-10 h-10 rounded-full bg-slate-50 text-slate-400 font-bold text-xs transition-all border border-slate-100 hover:border-indigo-200">2</button>
+            <button type="button" onclick="seleccionarEscala(this, 3)" class="escala-btn w-10 h-10 rounded-full bg-slate-50 text-slate-400 font-bold text-xs transition-all border border-slate-100 hover:border-indigo-200">3</button>
+            <button type="button" onclick="seleccionarEscala(this, 4)" class="escala-btn w-10 h-10 rounded-full bg-slate-50 text-slate-400 font-bold text-xs transition-all border border-slate-100 hover:border-indigo-200">4</button>
+            <button type="button" onclick="seleccionarEscala(this, 5)" class="escala-btn w-10 h-10 rounded-full bg-slate-50 text-slate-400 font-bold text-xs transition-all border border-slate-100 hover:border-indigo-200">5</button>
+            <button type="button" onclick="seleccionarEscala(this, 6)" class="escala-btn w-10 h-10 rounded-full bg-slate-50 text-slate-400 font-bold text-xs transition-all border border-slate-100 hover:border-indigo-200">6</button>
+            <button type="button" onclick="seleccionarEscala(this, 7)" class="escala-btn w-10 h-10 rounded-full bg-slate-50 text-slate-400 font-bold text-xs transition-all border border-slate-100 hover:border-indigo-200">7</button>
+            <button type="button" onclick="seleccionarEscala(this, 8)" class="escala-btn w-10 h-10 rounded-full bg-slate-50 text-slate-400 font-bold text-xs transition-all border border-slate-100 hover:border-indigo-200">8</button>
+            <button type="button" onclick="seleccionarEscala(this, 9)" class="escala-btn w-10 h-10 rounded-full bg-slate-50 text-slate-400 font-bold text-xs transition-all border border-slate-100 hover:border-indigo-200">9</button>
+            <button type="button" onclick="seleccionarEscala(this, 10)" class="escala-btn w-10 h-10 rounded-full bg-slate-50 text-slate-400 font-bold text-xs transition-all border border-slate-100 hover:border-indigo-200">10</button>
+        </div>
+        
+        <input type="hidden" name="estres" id="input-estres" value="">
+        
+        <div class="flex justify-between mt-4 px-4">
+            <span class="text-[9px] font-black uppercase tracking-tighter text-teal-500">Muy Relajado</span>
+            <span class="text-[9px] font-black uppercase tracking-tighter text-purple-500">Muy Estresado</span>
+        </div>
+    </div>
 
-                <div class="paso hidden">
-                    <h3 class="text-[10px] font-black uppercase tracking-[0.2em] text-indigo-600 mb-6">04. Emocional</h3>
-                    <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Nivel de estrés</label>
-                    <input type="range" min="1" max="10" class="w-full h-1.5 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-purple-400 mb-6">
-                    
-                    <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Horas de sueño</label>
-                    <input class="w-full p-4 bg-slate-50 border-none rounded-2xl font-bold text-slate-800 focus:ring-2 focus:ring-purple-100 outline-none" placeholder="Ej. 8">
-                </div>
+    <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Horas de sueño</label>
+    <input class="w-full p-4 bg-slate-50 border-none rounded-2xl font-bold text-slate-800 focus:ring-2 focus:ring-purple-100 outline-none" placeholder="Ej. 8">
+</div>
 
                 <div class="paso hidden">
                     <h3 class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-900 mb-6">05. Preguntas clave</h3>
