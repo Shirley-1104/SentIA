@@ -30,8 +30,20 @@ function anterior() {
 let respuestas = {
     tecnologia: 0,
     social: 0,
-    creativo: 0
+    creativo: 0,
+    emocional: 0,
+    analitico: 0
 };
+
+function evaluarRuta() {
+
+    let tecnologia = document.getElementById("tecnologia").value;
+
+    if (tecnologia >= 7) {
+        document.getElementById("preguntasTech").classList.remove("hidden");
+    }
+
+}
 
 function calcularResultado() {
 
