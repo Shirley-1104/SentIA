@@ -57,10 +57,10 @@ function mostrarPregunta() {
         case "select":
             input = document.createElement("select");
             input.className = "w-full border p-3 rounded-lg";
-            preguntaActual.opciones.forEach(opcion => {
+            preguntaActual.opciones.forEach(opcionTexto => {
                 let option = document.createElement("option");
-                option.value = option;
-                option.textContent = option;
+                option.value = opcionTexto;
+                option.textContent = opcionTexto;
                 input.appendChild(option);
             });
             break;
