@@ -153,7 +153,7 @@ const preguntas = [
             valor: "Arte"
         },
         puntos: {
-            diseño: 5
+            diseno: 5
         }
     },
 
