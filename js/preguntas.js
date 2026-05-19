@@ -213,6 +213,134 @@ const preguntas = [
         variable: "motivacion",
         min: 1,
         max: 10
-    }
+    },
 
+    //HABILIDADES
+    {
+        id: 19,
+        categoria: "habilidades",
+        pregunta: "¿Qué tan creativo te consideras?",
+        tipo: "range",
+        variable: "creatividad",
+        min: 1,
+        max: 10
+    },
+
+    {
+        id: 20,
+        categoria: "habilidades",
+        pregunta: "¿Te gusta trabajar con números?",
+        tipo: "radio",
+        variable: "numeros",
+        opciones: ["Sí", "No"]
+    },
+
+    {
+        id: 21,
+        categoria: "habilidades",
+        pregunta: "¿Te consideras un líder?",
+        tipo: "radio",
+        variable: "liderazgo",
+        opciones: ["Sí", "No"]
+    },
+
+    {
+        id: 22,
+        categoria: "habilidades",
+        pregunta: "¿Te gusta comunicar ideas?",
+        tipo: "radio",
+        variable: "comunicacion",
+        opciones: ["Sí", "No"]
+    },
+
+    {
+        id: 23,
+        categoria: "habilidades",
+        pregunta: "¿Te adaptas fácilmente a cambios?",
+        tipo: "radio",
+        variable: "adaptacion",
+        opciones: ["Sí", "No"]
+    },
+
+    // OBJETIVOS FUTUROS
+
+    {
+        id: 24,
+        categoria: "futuro",
+        pregunta: "¿Qué modalidad prefieres?",
+        tipo: "select",
+        variable: "modalidad",
+        opciones: [
+            "Virtual",
+            "Presencial",
+            "Híbrida"
+        ]
+    },
+
+    {
+        id: 25,
+        categoria: "futuro",
+        pregunta: "¿Te gustaría emprender?",
+        tipo: "radio",
+        variable: "emprender",
+        opciones: ["Sí", "No"]
+    },
+
+    {
+        id: 26,
+        categoria: "futuro",
+        pregunta: "¿Prefieres estabilidad o innovación?",
+        tipo: "select",
+        variable: "preferenciaLaboral",
+        opciones: [
+            "Estabilidad",
+            "Innovación"
+        ]
+    },
+
+    {
+        id: 27,
+        categoria: "futuro",
+        pregunta: "¿Cuál es tu salario ideal?",
+        tipo: "select",
+        variable: "salario",
+        opciones: [
+            "1-2 SMMLV",
+            "3-5 SMMLV",
+            "Más de 5 SMMLV"
+        ]
+    },
+
+    {
+        id: 28,
+        categoria: "futuro",
+        pregunta: "¿Te gustaría trabajar internacionalmente?",
+        tipo: "radio",
+        variable: "internacional",
+        opciones: ["Sí", "No"]
+    },
+
+    {
+        id: 29,
+        categoria: "futuro",
+        pregunta: "¿Qué tan importante es ayudar a otros para ti?",
+        tipo: "range",
+        variable: "ayudar",
+        min: 1,
+        max: 10
+    },
+
+    {
+        id: 30,
+        categoria: "futuro",
+        pregunta: "¿Qué tipo de ambiente laboral prefieres?",
+        tipo: "select",
+        variable: "ambiente",
+        opciones: [
+            "Creativo",
+            "Tecnológico",
+            "Social",
+            "Corporativo"
+        ]
+    }
 ];

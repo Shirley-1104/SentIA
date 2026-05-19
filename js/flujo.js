@@ -80,7 +80,9 @@ function mostrarPregunta() {
             });
         break;
     }
-    input.id = "respuestas";
+    if (preguntaActual.tipo !== "radio") {
+    input.id = "respuesta";
+}
         contenedor.appendChild(input);
         actualizarProgreso();
 }
