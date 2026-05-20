@@ -8,37 +8,51 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-slate-50 font-sans">
 
-  <nav class="bg-white shadow-md p-4 flex justify-between items-center sticky top-0">
-    <h1 class="text-2xl font-bold text-purple-700"><a href="index.html">SentIA</a></h1>
-  
-    <div class="space-x-6 font-medium">
-      <a href="index.html" class="hover:text-purple-600">Inicio</a>
-      <a href="carreras.html" class="hover:text-purple-600">Carreras</a>
-      <a href="test.html" class="hover:text-purple-600">Test</a>
-    </div>
-  </nav>
+    <nav class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
+        <div class="bg-white/60 backdrop-blur-xl border border-white/20 shadow-lg rounded-[2.5rem] px-10 py-4 flex justify-between items-center w-full max-w-4xl transition-all">
+            <h1 class="text-2xl font-black tracking-tighter text-purple-700"><a href="index.html">SentIA</a></h1>
+            <div class="flex space-x-2 font-bold text-[10px] uppercase tracking-[0.2em]">
+                <a href="index.html" class="px-6 py-2 rounded-full text-slate-500 hover:bg-purple-50 transition-all">Inicio</a>
+                <a href="carreras.html" class="px-6 py-2 rounded-full text-blue-600 bg-blue-50 transition-all">Carreras</a>
+                <a href="test.html" class="px-6 py-2 rounded-full text-slate-500 hover:bg-teal-50 transition-all">Test</a>
+            </div>
+        </div>
+    </nav>
 
-  <section class="p-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="h-40"></div>
 
-    <div class="bg-white p-4 rounded shadow">
-      <h3 class="font-bold text-lg">Ingeniería de Software</h3>
-      <p>Desarrollo de aplicaciones y sistemas.</p>
-    </div>
+    <header class="text-center mb-16">
+        <h2 class="text-4xl font-black text-slate-900 tracking-tighter uppercase">Catálogo de Carreras</h2>
+        <div class="w-20 h-1 bg-purple-600 mx-auto mt-4 rounded-full"></div>
+    </header>
 
-    <div class="bg-white p-4 rounded shadow">
-      <h3 class="font-bold text-lg">Psicología</h3>
-      <p>Estudio del comportamiento humano.</p>
-    </div>
+    <section class="p-10 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto pb-20">
+        <div class="group bg-white p-12 rounded-[2.5rem] shadow-sm hover:shadow-2xl transition-all duration-700 border border-slate-100 flex flex-col justify-between">
+            <div>
+                <h3 class="font-black text-2xl text-slate-900 mb-4 group-hover:text-purple-700">Ingeniería de Software</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Desarrollo de aplicaciones y sistemas de alto impacto.</p>
+            </div>
+            <div class="mt-10 text-[10px] font-black tracking-[0.2em] text-slate-300 group-hover:text-purple-600 uppercase transition-all">Ver Detalles →</div>
+        </div>
 
-    <div class="bg-white p-4 rounded shadow">
-      <h3 class="font-bold text-lg">Diseño Gráfico</h3>
-      <p>Creatividad visual y diseño.</p>
-    </div>
+        <div class="group bg-white p-12 rounded-[2.5rem] shadow-sm hover:shadow-2xl transition-all duration-700 border border-slate-100 flex flex-col justify-between">
+            <div>
+                <h3 class="font-black text-2xl text-slate-900 mb-4 group-hover:text-purple-700">Psicología</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Estudio profundo del comportamiento humano y bienestar emocional.</p>
+            </div>
+            <div class="mt-10 text-[10px] font-black tracking-[0.2em] text-slate-300 group-hover:text-purple-600 uppercase transition-all">Ver Detalles →</div>
+        </div>
 
-  </section>
-
+        <div class="group bg-white p-12 rounded-[2.5rem] shadow-sm hover:shadow-2xl transition-all duration-700 border border-slate-100 flex flex-col justify-between">
+            <div>
+                <h3 class="font-black text-2xl text-slate-900 mb-4 group-hover:text-purple-700">Diseño Digital</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Creatividad visual y experiencias estéticas contemporáneas.</p>
+            </div>
+            <div class="mt-10 text-[10px] font-black tracking-[0.2em] text-slate-300 group-hover:text-purple-600 uppercase transition-all">Ver Detalles →</div>
+        </div>
+    </section>
 </body>
 
 </html>
