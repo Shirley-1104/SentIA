@@ -130,9 +130,12 @@ function actualizarProgreso(){
 
 //FUNCION FINALIZAR 
 function finalizarTest(){
-    localStorage.setItem("respuestaUsuario", JSON.stringify(respuestasUsuario)
-    );
-    window.location.href = "resultados.html"; 
+    console.log("RESPUESTAS GUARDADAS:");
+    console.log(respuestasUsuario);
+
+    localStorage.setItem("respuestasUsuario", JSON.stringify(respuestasUsuario));
+
+    window.location.href="resultados.html";
 }
 
 //INICIALIZADOR
