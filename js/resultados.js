@@ -25,6 +25,21 @@ let carreras = {
     industrial: 0
 };
 
+// Determinar mejor carrera según puntaje
+
+const nombresCarreras = {
+    software: "Ingeniería de Software",
+    psicologia: "Psicología",
+    diseno: "Diseño Gráfico",
+    medicina: "Medicina",
+    administracion: "Administración de Empresas",
+    arquitectura: "Arquitectura",
+    marketing: "Marketing Digital",
+    derecho: "Derecho",
+    comunicacion: "Comunicación Social",
+    industrial: "Ingeniería Industrial"
+};
+
 //Sistema de puntuacion
 //SOFTWARE 
 if (respuestas.interesPrincipal === "Tecnología")
@@ -185,34 +200,91 @@ for (let carrera in carreras) {
 console.log(porcentajes);
 
 
-// UI Barras
-document.getElementById("bar1").style.width = `${porcentajes.software || 0}%`;
+// Generar top 3 carreras con mas compatibilidad
+const contenedorPorcentajes = document.getElementById("contenedorPorcentajes");
 
-document.getElementById("bar2").style.width = `${porcentajes.psicologia || 0}%`;
+contenedorPorcentajes.innerHTML = "";
 
-document.getElementById("bar3").style.width = `${porcentajes.diseno || 0}%`;
+const topCarreras = Object.entries(
+    porcentajes
+)
+    .sort((a, b) => b[1] - a[1])
 
-document.getElementById("textoSoftware").innerText = `${porcentajes.software || 0}%`;
-
-document.getElementById("textoPsicologia").innerText = `${porcentajes.psicologia || 0}%`;
-
-document.getElementById("textoDiseno").innerText = `${porcentajes.diseno || 0}%`;
+    .slice(0, 3);
 
 
-// Determinar mejor carrera según puntaje
+// colores para conservar el diseño
+const colores = [
 
-const nombresCarreras = {
-    software: "Ingeniería de Software",
-    psicologia: "Psicología",
-    diseno: "Diseño Gráfico",
-    medicina: "Medicina",
-    administracion: "Administración de Empresas",
-    arquitectura: "Arquitectura",
-    marketing: "Marketing Digital",
-    derecho: "Derecho",
-    comunicacion: "Comunicación Social",
-    industrial: "Ingeniería Industrial"
-};
+    "from-blue-400 to-blue-600",
+    "from-teal-400 to-teal-600",
+    "from-purple-400 to-purple-600"
+
+];
+
+
+topCarreras.forEach(
+    ([clave, valor], index) => {
+
+        const nombre =
+            nombresCarreras[clave];
+
+        contenedorPorcentajes.innerHTML += `
+
+<div class="mb-10">
+
+<div class="flex justify-between items-center mb-3">
+
+<h3 class="
+font-black
+uppercase
+tracking-wider
+text-slate-600">
+
+${nombre}
+
+</h3>
+
+<p class="
+font-black
+text-purple-600
+text-lg">
+
+${valor}%
+
+</p>
+
+</div>
+
+
+<div class="
+w-full
+bg-slate-200
+rounded-full
+h-5
+overflow-hidden">
+
+<div
+class="
+h-full
+rounded-full
+bg-gradient-to-r
+${colores[index]}
+transition-all
+duration-1000"
+
+style="width:${valor}%">
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+    });
+
 
 // Obtener carrera con mayor puntaje
 const carreraGanadora = Object.entries(carreras).sort((a, b) => b[1] - a[1])[0][0];
