@@ -294,6 +294,83 @@ let mejorCarrera =
 
 document.getElementById("principal").innerText = mejorCarrera;
 
+// NIVEL DE CONFIANZA
+
+const puntajeMayor =
+    Object.values(carreras)
+        .sort((a, b) => b - a)[0];
+
+let confianza = "";
+let mensajeConfianza = "";
+
+if (puntajeMayor >= 70) {
+
+    confianza = "Alta compatibilidad";
+
+    mensajeConfianza =
+        "Tus respuestas tienen una coincidencia fuerte con esta área.";
+
+}
+
+else if (puntajeMayor >= 40) {
+
+    confianza = "Compatibilidad moderada";
+
+    mensajeConfianza =
+        "Existe afinidad con esta área, aunque podrías explorar otras opciones.";
+
+}
+
+else {
+
+    confianza = "Compatibilidad exploratoria";
+
+    mensajeConfianza =
+        "Todavía hay varias áreas con características similares.";
+
+}
+
+// document.getElementById(
+//     "nivelConfianza"
+// ).innerHTML = `
+
+// <div>
+
+// <h3 class="
+// text-[10px]
+// font-black
+// uppercase
+// tracking-[0.2em]
+// text-purple-600
+// mb-4">
+
+// Nivel de coincidencia
+
+// </h3>
+
+// <p class="
+// text-lg
+// font-black
+// tracking-tight
+// text-slate-900
+// mb-3">
+
+// ${confianza}
+
+// </p>
+
+// <p class="
+// text-slate-500
+// font-medium
+// leading-relaxed">
+
+// ${mensajeConfianza}
+
+// </p>
+
+// </div>
+
+// `;
 
 // INFORMACIÓN DE CARRERAS
 const infoCarreras = {
@@ -609,6 +686,95 @@ ${carreraInfo.campo}
 
 `;
 
+
+// PERFIL EMOCIONAL
+let perfil = "";
+let descripcionPerfil = "";
+
+if (
+    respuestas.empatia === "Sí" &&
+    respuestas.trabajo === "Equipo"
+) {
+
+    perfil = "Empático y colaborativo";
+
+    descripcionPerfil =
+        "Tienes facilidad para comprender emociones, escuchar a otros y trabajar en equipo.";
+
+}
+
+else if (
+    parseInt(respuestas.creatividad || 0) >= 7
+) {
+
+    perfil = "Creativo e innovador";
+
+    descripcionPerfil =
+        "Tiendes a generar nuevas ideas y buscar formas originales de expresarte.";
+
+}
+
+else if (
+    respuestas.problemas === "Sí"
+) {
+
+    perfil = "Analítico y estratégico";
+
+    descripcionPerfil =
+        "Disfrutas resolver situaciones complejas y encontrar soluciones.";
+
+}
+
+else {
+
+    perfil = "Perfil equilibrado";
+
+    descripcionPerfil =
+        "Presentas características variadas y puedes adaptarte a diferentes entornos.";
+
+}
+
+document.getElementById(
+    "perfilEmocional"
+).innerHTML = `
+
+<div>
+
+<h3 class="
+text-[10px]
+font-black
+uppercase
+tracking-[0.2em]
+text-purple-600
+mb-4">
+
+Perfil emocional detectado
+
+</h3>
+
+<p class="
+text-lg
+font-black
+tracking-tight
+text-slate-900
+mb-3">
+
+${perfil}
+
+</p>
+
+<p class="
+text-slate-500
+font-medium
+leading-relaxed">
+
+${descripcionPerfil}
+
+</p>
+
+</div>
+
+`;
 
 
 document.getElementById("recomendaciones").innerHTML = `
