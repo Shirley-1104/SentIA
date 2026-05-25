@@ -8,12 +8,6 @@ const preguntas = [
     },
 
     {
-        pregunta: "¿Qué edad tienes?",
-        variable: "edad",
-        tipo: "number"
-    },
-
-    {
         pregunta: "¿Cuál es tu interés principal?",
         variable: "interesPrincipal",
         tipo: "select",
@@ -218,6 +212,37 @@ const preguntas = [
             "Tecnológico",
             "Empresarial",
             "Social"
+        ]
+    },
+
+    {
+        pregunta: "¿Prefieres un trabajo más práctico o más teórico?",
+        variable: "practicoTeorico",
+        tipo: "select",
+        opciones: [
+            "Práctico",
+            "Teórico",
+            "Ambos"
+        ]
+    },
+
+    {
+        pregunta: "¿Qué tan importante es para ti la estabilidad económica? (1-10)",
+        variable: "estabilidad",
+        tipo: "range",
+        min: 1,
+        max: 10
+    },
+
+    {
+        pregunta: "¿Qué te llama más la atención?",
+        variable: "enfoque",
+        tipo: "select",
+        opciones: [
+            "Trabajar con personas",
+            "Trabajar con datos",
+            "Crear cosas nuevas",
+            "Liderar equipos"
         ]
     }
 

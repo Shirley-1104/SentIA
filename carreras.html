@@ -1,58 +1,289 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carreras</title>
+  <title>Carreras - SentIA</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body class="bg-slate-50 font-sans">
+<body class="font-sans relative flex flex-col min-h-screen"
+    style="background-image: url('img/DISEÑO.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed;">
+    <div class="fixed inset-0 bg-black/50 z-0"></div>
 
     <nav class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
-        <div class="bg-white/60 backdrop-blur-xl border border-white/20 shadow-lg rounded-[2.5rem] px-10 py-4 flex justify-between items-center w-full max-w-4xl transition-all">
-            <h1 class="text-2xl font-black tracking-tighter text-purple-700"><a href="index.html">SentIA</a></h1>
+        <div class="bg-white/10 backdrop-blur-xl border border-white/20 shadow-lg rounded-[2.5rem] px-10 py-4 flex justify-between items-center w-full max-w-4xl transition-all">
+            <h1 class="text-2xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400"><a href="index.html">SentIA</a></h1>
             <div class="flex space-x-2 font-bold text-[10px] uppercase tracking-[0.2em]">
-                <a href="index.html" class="px-6 py-2 rounded-full text-slate-500 hover:bg-purple-50 transition-all">Inicio</a>
-                <a href="carreras.html" class="px-6 py-2 rounded-full text-blue-600 bg-blue-50 transition-all">Carreras</a>
-                <a href="test.html" class="px-6 py-2 rounded-full text-slate-500 hover:bg-teal-50 transition-all">Test</a>
+                <a href="index.html" class="px-6 py-2 rounded-full text-white/70 hover:bg-white/10 hover:text-white transition-all">Inicio</a>
+                <a href="carreras.html" class="px-6 py-2 rounded-full bg-white/20 text-white transition-all">Carreras</a>
+                <a href="test.html" class="px-6 py-2 rounded-full text-white/70 hover:bg-white/10 hover:text-white transition-all">Test</a>
             </div>
         </div>
     </nav>
 
-    <div class="h-40"></div>
+    <div class="h-40 relative z-10"></div>
 
-    <header class="text-center mb-16">
-        <h2 class="text-4xl font-black text-slate-900 tracking-tighter uppercase">Catálogo de Carreras</h2>
-        <div class="w-20 h-1 bg-purple-600 mx-auto mt-4 rounded-full"></div>
+    <header class="text-center mb-16 relative z-10">
+        <h2 class="text-4xl font-black text-white tracking-tighter uppercase">Catálogo de Carreras</h2>
+        <p class="text-white/70 text-sm mt-4 font-medium">Haz clic en cualquier carrera para ver sus detalles y requisitos</p>
+        <div class="w-20 h-1 bg-gradient-to-r from-purple-400 to-blue-400 mx-auto mt-4 rounded-full"></div>
     </header>
 
-    <section class="p-10 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto pb-20">
-        <div class="group bg-white p-12 rounded-[2.5rem] shadow-sm hover:shadow-2xl transition-all duration-700 border border-slate-100 flex flex-col justify-between">
-            <div>
-                <h3 class="font-black text-2xl text-slate-900 mb-4 group-hover:text-purple-700">Ingeniería de Software</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">Desarrollo de aplicaciones y sistemas de alto impacto.</p>
-            </div>
-            <div class="mt-10 text-[10px] font-black tracking-[0.2em] text-slate-300 group-hover:text-purple-600 uppercase transition-all">Ver Detalles →</div>
-        </div>
-
-        <div class="group bg-white p-12 rounded-[2.5rem] shadow-sm hover:shadow-2xl transition-all duration-700 border border-slate-100 flex flex-col justify-between">
-            <div>
-                <h3 class="font-black text-2xl text-slate-900 mb-4 group-hover:text-purple-700">Psicología</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">Estudio profundo del comportamiento humano y bienestar emocional.</p>
-            </div>
-            <div class="mt-10 text-[10px] font-black tracking-[0.2em] text-slate-300 group-hover:text-purple-600 uppercase transition-all">Ver Detalles →</div>
-        </div>
-
-        <div class="group bg-white p-12 rounded-[2.5rem] shadow-sm hover:shadow-2xl transition-all duration-700 border border-slate-100 flex flex-col justify-between">
-            <div>
-                <h3 class="font-black text-2xl text-slate-900 mb-4 group-hover:text-purple-700">Diseño Digital</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">Creatividad visual y experiencias estéticas contemporáneas.</p>
-            </div>
-            <div class="mt-10 text-[10px] font-black tracking-[0.2em] text-slate-300 group-hover:text-purple-600 uppercase transition-all">Ver Detalles →</div>
-        </div>
+    <section id="grid-carreras" class="px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto pb-20 relative z-10">
     </section>
+
+    <div id="modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-6">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="cerrarModal()"></div>
+        <div class="relative bg-white/10 backdrop-blur-xl rounded-[3rem] shadow-2xl w-full max-w-2xl max-h-[85vh] overflow-y-auto p-10 border border-white/20">
+            <button onclick="cerrarModal()" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/60 hover:text-white font-bold transition-all text-xl backdrop-blur-sm">&times;</button>
+            <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-purple-400 to-blue-400 rounded-t-[3rem]"></div>
+            <div class="mt-4">
+                <div id="modal-icono" class="text-7xl text-center mb-6"></div>
+                <h3 id="modal-titulo" class="text-4xl font-black text-white tracking-tighter mb-6 text-center"></h3>
+                <p id="modal-descripcion" class="text-white/80 leading-relaxed text-lg mb-8"></p>
+                <h4 class="text-sm font-black uppercase tracking-[0.2em] text-purple-300 mb-4">Requisitos recomendados</h4>
+                <ul id="modal-requisitos" class="space-y-3 mb-8 text-white/80 text-base"></ul>
+                <h4 class="text-sm font-black uppercase tracking-[0.2em] text-blue-300 mb-4">Universidades donde estudiar</h4>
+                <div id="modal-universidades" class="space-y-3 mb-8"></div>
+                <div class="flex justify-center mt-8">
+                    <button onclick="cerrarModal()" class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-10 py-4 rounded-2xl font-bold hover:bg-purple-600/40 hover:border-purple-400/50 transition-all text-sm tracking-[0.2em] uppercase">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const carreras = [
+            {
+                id: "ing-software",
+                nombre: "Ingeniería de Software",
+                icono: "💻",
+                descripcionCorta: "Desarrollo de aplicaciones y sistemas de alto impacto.",
+                descripcion: "Carrera enfocada en el diseño, desarrollo y mantenimiento de software. Aprenderás a programar, gestionar proyectos tecnológicos y crear soluciones digitales innovadoras que transforman la vida de las personas.",
+                requisitos: ["Lógica matemática", "Pensamiento analítico", "Inglés técnico", "Capacidad de resolver problemas complejos", "Trabajo en equipo"],
+                universidades: [
+                    { nombre: "EAFIT", link: "https://www.eafit.edu.co" },
+                    { nombre: "Universidad de Antioquia", link: "https://www.udea.edu.co" },
+                    { nombre: "Pascual Bravo", link: "https://pascualbravo.edu.co/" }
+                ]
+            },
+            {
+                id: "psicologia",
+                nombre: "Psicología",
+                icono: "🧠",
+                descripcionCorta: "Estudio profundo del comportamiento humano y bienestar emocional.",
+                descripcion: "Carrera que estudia la mente y el comportamiento humano. Te prepararás para ayudar a las personas a comprender sus emociones, superar desafíos psicológicos y mejorar su calidad de vida a través de la terapia y la investigación.",
+                requisitos: ["Empatía y escucha activa", "Paciencia", "Capacidad de análisis", "Interés por el comportamiento humano", "Ética profesional"],
+                universidades: [
+                    { nombre: "CES", link: "https://www.ces.edu.co" },
+                    { nombre: "UPB", link: "https://www.upb.edu.co" }
+                ]
+            },
+            {
+                id: "diseno-digital",
+                nombre: "Diseño Digital",
+                icono: "🎨",
+                descripcionCorta: "Creatividad visual y experiencias estéticas contemporáneas.",
+                descripcion: "Carrera que combina arte y tecnología para crear experiencias visuales impactantes. Desde diseño de interfaces UX/UI hasta animación digital, branding y producción multimedia.",
+                requisitos: ["Creatividad e imaginación", "Manejo de herramientas digitales", "Sentido estético", "Curiosidad visual", "Adaptabilidad a tendencias"],
+                universidades: [
+                    { nombre: "Bellas Artes", link: "https://bellasartesmed.edu.co/" },
+                    { nombre: "EAFIT", link: "https://www.eafit.edu.co" }
+                ]
+            },
+            {
+                id: "medicina",
+                nombre: "Medicina",
+                icono: "🏥",
+                descripcionCorta: "Ciencia de la salud, diagnóstico y tratamiento de enfermedades.",
+                descripcion: "Carrera dedicada a preservar la salud humana. Aprenderás anatomía, farmacología, diagnóstico clínico y técnicas quirúrgicas. Podrás especializarte en diversas áreas como pediatría, cardiología o neurología.",
+                requisitos: ["Vocación de servicio", "Disciplina y dedicación", "Capacidad de memorización", "Manejo de presión", "Trabajo bajo estrés"],
+                universidades: [
+                    { nombre: "CES", link: "https://www.ces.edu.co" },
+                    { nombre: "Universidad de Antioquia", link: "https://www.udea.edu.co" }
+                ]
+            },
+            {
+                id: "admin-empresas",
+                nombre: "Administración de Empresas",
+                icono: "📊",
+                descripcionCorta: "Gestión estratégica de organizaciones y recursos empresariales.",
+                descripcion: "Carrera que forma líderes capaces de planificar, organizar y dirigir empresas. Aprenderás finanzas, marketing, recursos humanos, logística y estrategia de negocios para impulsar el éxito organizacional.",
+                requisitos: ["Liderazgo", "Habilidades de comunicación", "Pensamiento estratégico", "Facilidad para números", "Toma de decisiones"],
+                universidades: [
+                    { nombre: "EAFIT", link: "https://www.eafit.edu.co" },
+                    { nombre: "CEIPA", link: "https://www.ceipa.edu.co/" }
+                ]
+            },
+            {
+                id: "arquitectura",
+                nombre: "Arquitectura",
+                icono: "🏛️",
+                descripcionCorta: "Diseño y construcción de espacios funcionales y estéticos.",
+                descripcion: "Carrera que combina arte, ingeniería y diseño para crear espacios habitables. Desde viviendas hasta rascacielos, aprenderás a planificar, diseñar y supervisar la construcción de edificaciones.",
+                requisitos: ["Visión espacial", "Creatividad", "Conocimientos de física", "Dibujo técnico", "Precisión y detalle"],
+                universidades: [
+                    { nombre: "UPB", link: "https://www.upb.edu.co" },
+                    { nombre: "Universidad Nacional", link: "https://medellin.unal.edu.co/" }
+                ]
+            },
+            {
+                id: "derecho",
+                nombre: "Derecho",
+                icono: "⚖️",
+                descripcionCorta: "Estudio de las leyes y defensa de la justicia.",
+                descripcion: "Carrera que forma profesionales capaces de interpretar y aplicar las leyes. Te convertirás en un defensor de la justicia, ya sea como abogado, juez, fiscal o asesor legal en empresas.",
+                requisitos: ["Capacidad de argumentación", "Lectura crítica", "Buena memoria", "Oratoria", "Sentido de la justicia"],
+                universidades: [
+                    { nombre: "Universidad de Antioquia", link: "https://www.udea.edu.co" },
+                    { nombre: "UPB", link: "https://www.upb.edu.co" }
+                ]
+            },
+            {
+                id: "marketing-digital",
+                nombre: "Marketing Digital",
+                icono: "📱",
+                descripcionCorta: "Estrategias de comunicación y promoción en el mundo digital.",
+                descripcion: "Carrera enfocada en la promoción de marcas y productos en el entorno digital. Aprenderás SEO, SEM, redes sociales, analítica web, email marketing y publicidad online para crear campañas efectivas.",
+                requisitos: ["Creatividad", "Análisis de datos", "Conocimiento de redes sociales", "Redacción persuasiva", "Pensamiento estratégico"],
+                universidades: [
+                    { nombre: "EAFIT", link: "https://www.eafit.edu.co" }
+                ]
+            },
+            {
+                id: "enfermeria",
+                nombre: "Enfermería",
+                icono: "🩺",
+                descripcionCorta: "Cuidado integral de la salud y asistencia sanitaria.",
+                descripcion: "Carrera dedicada al cuidado de la salud de las personas. Aprenderás técnicas de primeros auxilios, administración de medicamentos, cuidado de pacientes y apoyo en procedimientos médicos. Fundamental en cualquier sistema de salud.",
+                requisitos: ["Vocación de servicio", "Empatía", "Resistencia física y emocional", "Trabajo en equipo", "Atención al detalle"],
+                universidades: [
+                    { nombre: "Universidad de Antioquia", link: "https://www.udea.edu.co" },
+                    { nombre: "UPB", link: "https://www.upb.edu.co" }
+                ]
+            },
+            {
+                id: "contabilidad",
+                nombre: "Contabilidad",
+                icono: "💰",
+                descripcionCorta: "Gestión financiera, auditoría y control de recursos económicos.",
+                descripcion: "Carrera clave para cualquier organización. Aprenderás a llevar registros financieros, analizar estados contables, calcular impuestos y auditar empresas. Los contadores son esenciales para la toma de decisiones económicas.",
+                requisitos: ["Precisión numérica", "Honestidad", "Organización", "Pensamiento lógico", "Manejo de software contable"],
+                universidades: [
+                    { nombre: "EAFIT", link: "https://www.eafit.edu.co" },
+                    { nombre: "Universidad de Antioquia", link: "https://www.udea.edu.co" }
+                ]
+            },
+            {
+                id: "pedagogia",
+                nombre: "Pedagogía",
+                icono: "📚",
+                descripcionCorta: "Ciencia de la educación y formación integral de personas.",
+                descripcion: "Carrera dedicada a la enseñanza y el desarrollo humano. Aprenderás técnicas pedagógicas, psicología educativa, diseño curricular y métodos de evaluación. Formarás las mentes del futuro.",
+                requisitos: ["Paciencia", "Vocación de enseñanza", "Creatividad", "Habilidades de comunicación", "Empatía"],
+                universidades: [
+                    { nombre: "UPB", link: "https://www.upb.edu.co" },
+                    { nombre: "Universidad de Antioquia", link: "https://www.udea.edu.co" }
+                ]
+            },
+            {
+                id: "ing-civil",
+                nombre: "Ingeniería Civil",
+                icono: "🏗️",
+                descripcionCorta: "Diseño y construcción de infraestructura y obras civiles.",
+                descripcion: "Carrera que transforma el mundo físico. Aprenderás a diseñar y construir puentes, carreteras, edificios, presas y sistemas de agua potable. Los ingenieros civiles dan forma a las ciudades del mañana.",
+                requisitos: ["Física y matemáticas", "Pensamiento analítico", "Creatividad técnica", "Trabajo en equipo", "Responsabilidad"],
+                universidades: [
+                    { nombre: "EIA", link: "https://www.eia.edu.co/" },
+                    { nombre: "Universidad Nacional", link: "https://medellin.unal.edu.co/" }
+                ]
+            }
+        ];
+
+        const grid = document.getElementById("grid-carreras");
+        const modal = document.getElementById("modal");
+        const modalTitulo = document.getElementById("modal-titulo");
+        const modalDesc = document.getElementById("modal-descripcion");
+        const modalReqs = document.getElementById("modal-requisitos");
+
+        function pintarCarreras() {
+            const colores = [
+                "hover:border-purple-300/50",
+                "hover:border-blue-300/50",
+                "hover:border-rose-300/50",
+                "hover:border-amber-300/50",
+                "hover:border-indigo-300/50",
+                "hover:border-emerald-300/50",
+                "hover:border-pink-300/50",
+                "hover:border-cyan-300/50",
+                "hover:border-orange-300/50",
+                "hover:border-violet-300/50",
+                "hover:border-lime-300/50",
+                "hover:border-teal-300/50"
+            ];
+
+            carreras.forEach(c => {
+                const color = colores[carreras.indexOf(c) % colores.length];
+
+                const div = document.createElement("div");
+                div.className = `group bg-white/10 backdrop-blur-xl p-8 rounded-[2.5rem] shadow-lg hover:shadow-2xl transition-all duration-700 border border-white/20 flex flex-col justify-between cursor-pointer ${color}`;
+                div.innerHTML = `
+                    <div>
+                        <div class="text-4xl mb-4">${c.icono}</div>
+                        <h3 class="font-black text-2xl text-white mb-4 group-hover:text-purple-300">${c.nombre}</h3>
+                        <p class="text-white/60 text-sm leading-relaxed">${c.descripcionCorta}</p>
+                    </div>
+                    <div class="mt-8 text-[10px] font-black tracking-[0.2em] text-white/40 group-hover:text-purple-300 uppercase transition-all">Ver Detalles →</div>
+                `;
+                div.addEventListener("click", () => abrirModal(c));
+                grid.appendChild(div);
+            });
+        }
+
+        function abrirModal(c) {
+            document.getElementById("modal-icono").textContent = c.icono;
+            modalTitulo.textContent = c.nombre;
+            modalDesc.textContent = c.descripcion;
+            modalReqs.innerHTML = "";
+            c.requisitos.forEach(r => {
+                const li = document.createElement("li");
+                li.className = "flex items-center gap-3 text-white/70 font-medium";
+                li.innerHTML = `<span class="w-2 h-2 rounded-full bg-gradient-to-r from-purple-400 to-blue-400 flex-shrink-0"></span> ${r}`;
+                modalReqs.appendChild(li);
+            });
+            let modalUnis = document.getElementById("modal-universidades");
+            modalUnis.innerHTML = "";
+            if (c.universidades) {
+                c.universidades.forEach(u => {
+                    const div = document.createElement("div");
+                    div.className = "flex items-center justify-between bg-white/5 backdrop-blur-md rounded-2xl p-5 border border-white/10";
+                    div.innerHTML = `
+                        <span class="text-white/90 font-bold text-base">${u.nombre}</span>
+                        <a href="${u.link}" target="_blank" class="text-xs font-black uppercase tracking-[0.2em] text-purple-300 hover:text-purple-200 transition-all">Ver →</a>
+                    `;
+                    modalUnis.appendChild(div);
+                });
+            }
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+            document.body.style.overflow = "hidden";
+        }
+
+        function cerrarModal() {
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
+            document.body.style.overflow = "";
+        }
+
+        document.addEventListener("keydown", e => {
+            if (e.key === "Escape") cerrarModal();
+        });
+
+        pintarCarreras();
+    </script>
 </body>
 
 </html>

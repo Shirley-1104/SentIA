@@ -22,7 +22,10 @@ let carreras = {
     marketing: 0,
     derecho: 0,
     comunicacion: 0,
-    industrial: 0
+    industrial: 0,
+    enfermeria: 0,
+    contabilidad: 0,
+    pedagogia: 0
 };
 
 // Determinar mejor carrera según puntaje
@@ -37,7 +40,10 @@ const nombresCarreras = {
     marketing: "Marketing Digital",
     derecho: "Derecho",
     comunicacion: "Comunicación Social",
-    industrial: "Ingeniería Industrial"
+    industrial: "Ingeniería Industrial",
+    enfermeria: "Enfermería",
+    contabilidad: "Contabilidad",
+    pedagogia: "Pedagogía"
 };
 
 //Sistema de puntuacion
@@ -170,6 +176,52 @@ if (respuestas.problemas === "Sí")
 if (respuestas.liderazgo === "Sí")
     carreras.industrial += 15;
 
+// NUEVAS PREGUNTAS GENERALES
+
+if (respuestas.practicoTeorico === "Práctico") {
+    carreras.software += 10;
+    carreras.medicina += 10;
+    carreras.arquitectura += 10;
+    carreras.enfermeria += 10;
+} else if (respuestas.practicoTeorico === "Teórico") {
+    carreras.derecho += 10;
+    carreras.psicologia += 10;
+    carreras.comunicacion += 10;
+} else if (respuestas.practicoTeorico === "Ambos") {
+    carreras.software += 5;
+    carreras.diseno += 5;
+    carreras.administracion += 5;
+}
+
+if (parseInt(respuestas.estabilidad || 0) >= 7) {
+    carreras.administracion += 15;
+    carreras.derecho += 10;
+    carreras.contabilidad += 15;
+} else if (parseInt(respuestas.estabilidad || 0) <= 3) {
+    carreras.diseno += 10;
+    carreras.marketing += 10;
+    carreras.comunicacion += 10;
+}
+
+if (respuestas.enfoque === "Trabajar con personas") {
+    carreras.psicologia += 15;
+    carreras.medicina += 15;
+    carreras.enfermeria += 15;
+    carreras.comunicacion += 10;
+} else if (respuestas.enfoque === "Trabajar con datos") {
+    carreras.software += 15;
+    carreras.contabilidad += 15;
+    carreras.administracion += 10;
+} else if (respuestas.enfoque === "Crear cosas nuevas") {
+    carreras.diseno += 15;
+    carreras.arquitectura += 15;
+    carreras.marketing += 10;
+} else if (respuestas.enfoque === "Liderar equipos") {
+    carreras.administracion += 15;
+    carreras.derecho += 10;
+    carreras.industrial += 10;
+}
+
 
 // Normalizar porcentajes
 let total = Object.values(carreras)
@@ -178,11 +230,8 @@ let total = Object.values(carreras)
 
 //Evitar division por 0
 if (total <= 0) {
-    carreras.software = 1;
-    carreras.psicologia = 1;
-    carreras.diseno = 1;
-
-    total = 3;
+    for (let c in carreras) carreras[c] = 1;
+    total = Object.keys(carreras).length;
 }
 
 
@@ -239,7 +288,7 @@ topCarreras.forEach(
 font-black
 uppercase
 tracking-wider
-text-slate-600">
+text-white/80">
 
 ${nombre}
 
@@ -247,7 +296,7 @@ ${nombre}
 
 <p class="
 font-black
-text-purple-600
+text-purple-300
 text-lg">
 
 ${valor}%
@@ -259,7 +308,7 @@ ${valor}%
 
 <div class="
 w-full
-bg-slate-200
+bg-white/10
 rounded-full
 h-5
 overflow-hidden">
@@ -292,7 +341,8 @@ const carreraGanadora = Object.entries(carreras).sort((a, b) => b[1] - a[1])[0][
 let mejorCarrera =
     nombresCarreras[carreraGanadora];
 
-document.getElementById("principal").innerText = mejorCarrera;
+let nombreUsuario = respuestas.nombre || "";
+document.getElementById("principal").innerText = nombreUsuario ? `${nombreUsuario}, tu mejor opción es ${mejorCarrera}` : mejorCarrera;
 
 // NIVEL DE CONFIANZA
 
@@ -655,17 +705,17 @@ const infoCarreras = {
 const carreraInfo = infoCarreras[mejorCarrera];
 
 document.getElementById("explicacion").innerHTML = `
-<div>
+<div class="text-white/80">
 
 <p class="mb-4">
 ${carreraInfo.descripcion}
 </p>
 
-<p class="font-bold mt-4">
+<p class="font-bold mt-4 text-white">
 Habilidades detectadas:
 </p>
 
-<ul class="mb-4">
+<ul class="mb-4 text-white/70">
 ${carreraInfo.habilidades
         .map(
             h => `<li>✓ ${h}</li>`
@@ -674,11 +724,11 @@ ${carreraInfo.habilidades
     }
 </ul>
 
-<p class="font-bold">
+<p class="font-bold text-white">
 Campo laboral:
 </p>
 
-<p>
+<p class="text-white/70">
 ${carreraInfo.campo}
 </p>
 
@@ -704,7 +754,20 @@ if (
 }
 
 else if (
-    parseInt(respuestas.creatividad || 0) >= 7
+    respuestas.enfoque === "Liderar equipos" ||
+    respuestas.liderazgo === "Sí"
+) {
+
+    perfil = "Líder natural";
+
+    descripcionPerfil =
+        "Tienes habilidades para dirigir, organizar y motivar a otros hacia un objetivo común.";
+
+}
+
+else if (
+    parseInt(respuestas.creatividad || 0) >= 7 ||
+    respuestas.enfoque === "Crear cosas nuevas"
 ) {
 
     perfil = "Creativo e innovador";
@@ -715,13 +778,14 @@ else if (
 }
 
 else if (
-    respuestas.problemas === "Sí"
+    respuestas.problemas === "Sí" ||
+    respuestas.enfoque === "Trabajar con datos"
 ) {
 
     perfil = "Analítico y estratégico";
 
     descripcionPerfil =
-        "Disfrutas resolver situaciones complejas y encontrar soluciones.";
+        "Disfrutas resolver situaciones complejas y encontrar soluciones basadas en datos.";
 
 }
 
@@ -745,7 +809,7 @@ text-[10px]
 font-black
 uppercase
 tracking-[0.2em]
-text-purple-600
+text-purple-300
 mb-4">
 
 Perfil emocional detectado
@@ -756,7 +820,7 @@ Perfil emocional detectado
 text-lg
 font-black
 tracking-tight
-text-slate-900
+text-white
 mb-3">
 
 ${perfil}
@@ -764,7 +828,7 @@ ${perfil}
 </p>
 
 <p class="
-text-slate-500
+text-white/60
 font-medium
 leading-relaxed">
 
@@ -778,44 +842,7 @@ ${descripcionPerfil}
 
 
 document.getElementById("recomendaciones").innerHTML = `
-
-<div class="bg-gray-100 p-5 rounded-xl">
-
-<h3 class="font-bold text-lg mb-4">
-
-Universidades recomendadas
-
-</h3>
-
-${carreraInfo.universidades
-        .map(
-            u => `
-
-<div class="mb-4">
-
-<p class="font-semibold">
-
-${u.nombre}
-
-</p>
-
-<a
-href="${u.link}"
-target="_blank"
-class="text-purple-600 hover:underline"
->
-
-Ver programa →
-
-</a>
-
+<div class="bg-white/10 backdrop-blur-md border border-white/10 p-5 rounded-2xl text-center">
+    <p class="text-white/60 text-sm">Explora más carreras y sus universidades en la sección <a href="carreras.html" class="text-purple-300 hover:text-purple-200 underline font-bold">Carreras</a></p>
 </div>
-
-`
-        )
-        .join("")
-    }
-
-</div>
-
 `;
