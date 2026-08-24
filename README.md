@@ -44,28 +44,39 @@ Antes de comenzar, es necesario tener instalado:
 - Visual Studio Code (recomendado)
 
 ### 1. Clonar el repositorio
+
 Desde una terminal, ejecute:
 
 ```bash
-git clone https://github.com/Shirley-1104/SentIA.git 
+git clone https://github.com/Shirley-1104/SentIA.git
+```
 
-### 2. Ingresar a la carpeta del proyecto: 
+### 2. Ingresar a la carpeta del proyecto
+
 ```bash
 cd SentIA
+```
 
-### 3. Abrir el proyecto:
-Abrir la carpeta de SentIA en VS Code
+### 3. Abrir el proyecto
+
+Abra la carpeta `SentIA` en Visual Studio Code.
 
 ### 4. Ejecutar el proyecto localmente
+
 Desde la carpeta raíz del proyecto, ejecute:
 
 ```bash
 npx live-server
+```
 
 El servidor local se iniciará y el proyecto estará disponible en:
+
+```text
 http://127.0.0.1:8080
+```
 
 ### 5. Acceder al proyecto
+
 Abra la dirección indicada en el navegador para acceder a SentIA y utilizar sus diferentes funcionalidades.
 
 ---
@@ -101,11 +112,15 @@ SentIA/
 │
 └── README.md
     └── Documentación del proyecto
-    ---
-## Integrantes:
+```
+
+## Integrantes
+
 - Shirley Johanna Grajales Arango
 - Niurka Liseth Mejia Vargas
-    ---
+
+---
+
 ## Objetivo del proyecto
 
- Crear una experiencia interactiva que combine orientación vocacional y aspectos emocionales para apoyar a los usuarios en la exploración de carreras profesionales acordes a su perfil.
+Crear una experiencia interactiva que combine orientación vocacional y aspectos emocionales para apoyar a los usuarios en la exploración de carreras profesionales acordes a su perfil.
